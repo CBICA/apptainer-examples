@@ -3,13 +3,13 @@
 Submit the build script:
 
 ``` console
-$ sbatch build_numpy.sh
+$ sbatch build_numpy-conda.sh
 ```
 
 ## Run Python from the container
 
 ``` console
-$ apptainer run numpy.sif python3 test_compute.py
+$ apptainer run numpy-conda.sif python3 test_compute.py
 numpy version: 2.3.4
 
 a =

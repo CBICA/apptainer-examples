@@ -46,4 +46,5 @@ conda install numpy
 export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export _CONDA_ROOT=/opt/miniconda3
 export CONDA_EXE=/opt/miniconda3/bin/conda
+export _CONDA_EXE=/opt/miniconda3/bin/conda
 export CONDA_PYTHON_EXE=/opt/miniconda3/bin/python
