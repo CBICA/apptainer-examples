@@ -9,7 +9,9 @@ FREESURFER_VERSION=8.1.0
 
 # download ubuntu jammy (22.04) SIF if not already downloaded
 
-[[ ! -f ubuntu_jammy.sif ]] && apptainer pull docker://ubuntu:jammy
+module load containers/ubuntu/22.04
+
+[[ ! -f ubuntu_22.04.sif ]] && cp $UBUNTUSIF .
 
 # NOTE wget -c will not re-download existing file
 

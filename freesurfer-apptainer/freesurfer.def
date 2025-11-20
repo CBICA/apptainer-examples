@@ -1,7 +1,7 @@
 # Filename: freesurfer.def
 
 Bootstrap: localimage
-From: ubuntu_jammy.sif
+From: ubuntu_22.04.sif
 
 %files 
 
