@@ -4,6 +4,12 @@ Builds an Apptainer container to hold Freesurfer 8.1.0.
 
 There is no ARM64 aarch64 version.
 
+## CAUTION
+
+The FreeSurfer package file is large (~ 9 GB), so repeated
+downloads will cause the FreeSurfer providers to block any
+connections from CUBIC.
+
 ## Instructions for building the Freesurfer Apptainer
 
 - there are 2 job scripts to be submitted to Slurm
