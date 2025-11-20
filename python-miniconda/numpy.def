@@ -38,8 +38,9 @@ conda install numpy
 
 %environment
 
-# Cannot source the miniconda "activate" sript, so set some miniconda
-# environment variables statically in the container.
+# Cannot source the miniconda "activate" script at runtime,
+# so set some miniconda environment variables statically in
+# the container.
 # The environment variables will be defined in the resulting container.
 
 export PATH=/opt/miniconda3/bin:/opt/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
