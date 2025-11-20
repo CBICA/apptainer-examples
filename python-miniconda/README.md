@@ -1,5 +1,10 @@
 # Python + numpy using miniconda
 
+## Edit the .def file
+
+The `numpy-conda.def` file has to be edited to pick the architecture-specific
+version of Miniconda: Intel x86_64 or ARM64 aarch64.
+
 ## Build the container
 
 Submit the build script:
