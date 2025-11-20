@@ -15,5 +15,5 @@ module load containers/ubuntu/22.04
 
 # NOTE wget -c will not re-download existing file
 
-wget -c https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/${FREESURFER_VERSION}/freesurfer_ubuntu22-${FREESURFER_VERSION}_amd64.deb
+wget --no-check-certificate -c https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/${FREESURFER_VERSION}/freesurfer_ubuntu22-${FREESURFER_VERSION}_amd64.deb
 
