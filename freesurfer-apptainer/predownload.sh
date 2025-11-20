@@ -5,6 +5,8 @@
 #SBATCH --job-name=predownload
 #SBATCH --output=predownload-%j.out
 
+# NOTE Need a long time because FreeSurfer downloads are slow
+
 FREESURFER_VERSION=8.1.0
 
 # download ubuntu jammy (22.04) SIF if not already downloaded
