@@ -27,10 +27,7 @@ dpkg-reconfigure --frontend noninteractive tzdata
 python3 -m venv /opt/numpy_env
 . /opt/numpy_env/bin/activate
 
-# use pip from the Python archive rather than an Ubuntu package
-#wget https://bootstrap.pypa.io/get-pip.py -O get-pip.py
-#python3 get-pip.py
-
+# update basic pkgs; install numpy
 python3 -m pip install -U pip setuptools wheel
 python3 -m pip install numpy
 
