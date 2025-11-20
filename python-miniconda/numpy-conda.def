@@ -17,7 +17,13 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install wget
 #      here are effectively run by "root"
 mkdir -p /opt/miniconda3
 
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3/miniconda.sh
+
+# NOTE uncomment the appropriate version of Miniconda3
+# This is for Intel x86_64
+#wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3/miniconda.sh
+
+# This is for ARM64 aarch64
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh -O /opt/miniconda3/miniconda.sh
 
 bash /opt/miniconda3/miniconda.sh -b -u -p /opt/miniconda3
 
