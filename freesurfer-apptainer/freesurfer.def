@@ -1,0 +1,24 @@
+# Filename: freesurfer.def
+
+Bootstrap: localimage
+From: ubuntu_jammy.sif
+
+%files 
+
+./freesurfer_ubuntu22-8.1.0_amd64.deb /src/freesurfer_ubuntu22-8.1.0_amd64.deb
+
+%post
+
+apt-get autoclean
+apt-get update
+ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+DEBIAN_FRONTEND=noninteractive apt install -y qtcreator qtbase5-dev qt5-qmake cmake
+dpkg-reconfigure --frontend noninteractive tzdata
+cd /src && DEBIAN_FRONTEND=noninteractive apt install -y ./freesurfer_ubuntu22-8.1.0_amd64.deb
+
+%environment
+
+export PATH=/usr/local/freesurfer/8.1.0/bin:${PATH}
+export LD_LIBRARY_PATH=/usr/local/freesurfer/8.1.0/lib/qt/lib:${LD_LIBRARY_PATH}
+export FREESURFER_HOME=/usr/local/freesurfer/8.1.0
+
