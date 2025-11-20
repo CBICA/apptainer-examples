@@ -13,6 +13,16 @@ Submit the build script:
 $ sbatch build_numpy-conda.sh
 ```
 
+On the Grace Hopper nodes, just run the script directly on the command line:
+
+``` console
+$ ./build_numpy-conda.sh
+INFO:    User not listed in /etc/subuid, trying root-mapped namespace
+INFO:    The %post section will be run under the fakeroot command
+INFO:    Starting build...
+...
+```
+
 ## Run Python from the container
 
 ``` console
