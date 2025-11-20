@@ -1,4 +1,4 @@
-# Filename: numpy.def
+# Filename: numpy-conda.def
 
 # Build an apptainer containing a miniconda-based Python with numpy
 
