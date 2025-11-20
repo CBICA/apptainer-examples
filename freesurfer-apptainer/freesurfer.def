@@ -5,19 +5,29 @@ From: ubuntu_22.04.sif
 
 %files 
 
+# This links the file freesurfer_ubuntu22-8.1.0_amd64.deb (in the current directory)
+# as /src/freesurfer_ubuntu22-8.1.0_amd64.deb in the container
 ./freesurfer_ubuntu22-8.1.0_amd64.deb /src/freesurfer_ubuntu22-8.1.0_amd64.deb
 
 %post
 
+# various updates and settings for ubuntu
 apt-get autoclean
 apt-get update
-ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+
+# freesurfer needs these packages
 DEBIAN_FRONTEND=noninteractive apt install -y qtcreator qtbase5-dev qt5-qmake cmake
+
+# set timezone data
+ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
+
+# install freesurfer from the .deb in the /src directory
 cd /src && DEBIAN_FRONTEND=noninteractive apt install -y ./freesurfer_ubuntu22-8.1.0_amd64.deb
 
 %environment
 
+# set up environment for runtime
 export PATH=/usr/local/freesurfer/8.1.0/bin:${PATH}
 export LD_LIBRARY_PATH=/usr/local/freesurfer/8.1.0/lib/qt/lib:${LD_LIBRARY_PATH}
 export FREESURFER_HOME=/usr/local/freesurfer/8.1.0
