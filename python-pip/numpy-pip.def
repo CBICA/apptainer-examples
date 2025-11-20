@@ -1,0 +1,43 @@
+# Filename: numpy.def
+
+# Build an apptainer containing a miniconda-based Python with numpy
+
+Bootstrap: localimage
+From: ubuntu_24.04.sif
+
+# The %post section contains the commands to be run during the build process
+
+%post
+
+DEBIAN_FRONTEND=noninteractive apt-get -y update
+DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
+DEBIAN_FRONTEND=noninteractive apt-get -y install wget
+DEBIAN_FRONTEND=noninteractive apt-get -y install python3
+DEBIAN_FRONTEND=noninteractive apt-get -y install python3-pip
+DEBIAN_FRONTEND=noninteractive apt-get -y install python3-venv
+
+# fix timezone
+ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
+
+# NOTE there are no "users" in the container; the commands
+#      here are effectively run by "root"
+
+# create a venv for installation
+python3 -m venv /opt/numpy_env
+. /opt/numpy_env/bin/activate
+
+# use pip from the Python archive rather than an Ubuntu package
+#wget https://bootstrap.pypa.io/get-pip.py -O get-pip.py
+#python3 get-pip.py
+
+python3 -m pip install -U pip setuptools wheel
+python3 -m pip install numpy
+
+%environment
+
+# cannot activate venv at run time, so set environment
+# variables so that the "numpy_env" venv is used at run time
+
+export PATH=/opt/numpy_env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export VIRTUAL_ENV=/opt/numpy_env
