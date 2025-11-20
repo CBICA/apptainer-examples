@@ -1,4 +1,5 @@
 #!/bin/bash
+# Filename: build_numpy-conda.sh
 #SBATCH --partition=short
 #SBATCH --mem=16G
 #SBATCH --time=00:30:00
